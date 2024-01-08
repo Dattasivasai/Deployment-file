@@ -1,0 +1,85 @@
+
+Git:
+	1. Insatll git locally
+
+		
+	Create a REPO and Branch for pull and push
+		a. create a ssh key using ssh key gen this will store files at C:\Users\91875\.ssh
+			id_rsa and id_rsa.pub here one is private file and the other is public file 
+		b. Add the ssh public key to git profile
+		c. Create a branch in git
+		d. Create a redme and license files in git 
+		e. siwtch to new branch from local 
+		f. git clone repo
+		g. Then push and pull the changes 
+	
+
+Docker:
+	1. Download docker desktop and install it
+
+
+Minikube Installation: https://minikube.sigs.k8s.io/docs/start/
+	1. You need docker or similar container platform first, hence install docker desktop first.
+	2. Install minikube
+	3. Run minikube start 
+	4. minikube dashboard -- gives ui
+	5. 
+	
+	netstat -ano | findstr ":"
+	minikube start --port=49160:49160
+
+
+		
+Run MySQL as Kubernetes POD locally:
+Install MySQL Pod:
+	1. create a deployment yaml file mysql-deployment.yaml
+	2. Apply deployment using 'kubectl apply -f C:\Users\91875\Desktop\KDPJ\KDPJ\MySQL\mysql-deployment.yaml'
+	3. For windows to point storage use the format as '/C/Users/91875/Desktop/KDPJ/KDPJ/MySQL/Storage'
+	4. Run 'kubectl get services' to get ipaddress of the cluster inside kubernetes
+	5. kubectl port-forward deployment/mysql 3306:3306
+	Delete Order:
+	kubectl delete deployment,svc mysql
+	kubectl delete pvc mysql-pv-claim
+	kubectl delete pv mysql-pv
+	kubectl delete persistentvolume pvc-de5fec26-db52-4993-bc73-4172c8c417a4
+	
+	minikube mount $HOME/Desktop/KDPJ/KDPJ/MySQL/Storage/:/data/mysql-pv/
+	SHOW DATABASES;
+	select user from mysql.user;
+	kubectl exec --stdin --tty mysql-769f5f9c69-llwlf -- /bin/bash
+	for shell type: mysql -p
+
+kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql --host mysql --password=
+
+
+Connect to DB:
+1. Download Dbeaver
+2. allowPublicKeyRetrieval true
+3. useSSL false
+4. connect to db server using localhost 
+5. Use the DB and user
+CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(255), user_email VARCHAR(255), user_password VARCHAR(255));
+
+PythonAPI:
+1. Crate a python file
+2. Create a docker file 
+3. Create requirements file
+4. Create a deployment file 
+5. Run 'docker build . -t ravi'
+6. 'kubectl apply -f C:\Users\91875\Desktop\KDPJ\KDPJ\PythonAPI\flaskapp-deployment.yml'
+7. Expose the service 'minikube service flask-service'
+8. if the service failed its due to docker deamon conflict with docker desktop use below command
+'minikube docker-env | Invoke-Expression'
+9.
+
+ExposeService:  minikube service flask-service
+
+DELETE:
+kubectl delete deployment flaskapi-deployment
+kubectl delete svc flask-service
+	
+GEN AI STACK:
+https://github.com/docker/genai-stack
+https://github.com/docker/awesome-compose
+
+	
