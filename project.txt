@@ -1,0 +1,75 @@
+git hub::
+user-Dattasivasai
+pass-Dattaharsha$123
+clone project-git clone [link]
+*go to window powershell
+*go to where you want to save the file
+*clone the git project through powershell
+
+
+docker hub::
+user-mail id
+pass-mail password
+#to check version[docker version]
+*installing docker desktop
+*login to docker desktop
+*go to settings, go to kubernetes and enable the kubernetes, click on apply and install
+
+
+minikube::
+#to check version[kubectl version]
+#if minikube is not there.go to minikuber website and run first step
+*install minikube
+*run minikube,go to powershell and write "minikube start"
+* "minikube dashboard"
+
+
+
+*install dBeaver application and run
+
+
+
+kubernetes deployment:
+*to run certain file in powershell"[kubectl apply -f (file path)]"
+*kubectl get pod
+(only for mysql)
+*if image is shown error we have to delete
+delete order is::
+    kubectl delete deployment,svc mysql
+	kubectl delete pvc mysql-pv-claim
+	kubectl delete pv mysql-pv
+
+*check if pods are empty(kubectl get pods)
+*to mysql image install:(powershell)
+   docker pull mysql
+
+if the service failed its due to docker deamon conflict with docker desktop use below command
+'minikube docker-env | Invoke-Expression'
+
+#To enter into database::
+*"kubectl exec --stdin --tty mysql-54cdf44649-4lld4 -- /bin/bash"
+*mysql -p
+*enter the password
+*"show databases;" to info of datadase
+*"exit" to exit from database
+
+
+@To decode the db_root-password
+ import base64
+
+a="SHlkZXJhYmFkJDMyMQ=="
+b=base64.b64decode(a)
+b_str=b.decode('utf-8')
+print(b)
+
+@To encode
+ import base64
+c="Hyderabad$321"
+d=base64.b64decode(c.encode('utf-8'))
+# d_str=d.decode('utf-8')
+print(d)
+
+
+
+
+minikube stop
